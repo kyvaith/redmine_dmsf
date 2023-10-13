@@ -28,7 +28,7 @@ class CreateDmsfWorkflows < ActiveRecord::Migration[4.2]
       t.timestamps
     end
     add_index :dmsf_workflows, [:name], unique: true
-    change_table :dmsf_file_revisions, bulk: true do |t|
+    change_table :dmsf_file_revisions do |t|
       t.references :dmsf_workflow
       t.integer :dmsf_workflow_assigned_by
       t.datetime :dmsf_workflow_assigned_at

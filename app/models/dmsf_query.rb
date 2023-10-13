@@ -153,7 +153,7 @@ class DmsfQuery < Query
           filters_clauses << "(#{sql_for_field(field, operator, v, queried_table_name, field)})"
         end
       end
-      filters_clauses.compact_blank!
+      filters_clauses.compact!
       @statement = filters_clauses.any? ? filters_clauses.join(' AND ') : nil
     end
     @statement
@@ -182,7 +182,7 @@ class DmsfQuery < Query
   # New
 
   def dmsf_nodes(options = {})
-    order_option = ['sort', group_by_sort_order, (options[:order] || sort_clause&.first)].flatten.compact_blank
+    order_option = ['sort', group_by_sort_order, (options[:order] || sort_clause&.first)].flatten.compact
     if order_option.size > 1
       DmsfFileRevisionCustomField.visible.pluck(:id, :name).each do |id, _name|
         order_option[1].gsub! "cf_#{id}.value", "cf_#{id}"

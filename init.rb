@@ -28,7 +28,7 @@ Redmine::Plugin.register :redmine_dmsf do
   description 'Document Management System Features'
   version '3.1.2'
 
-  requires_redmine version_or_higher: '5.0.0'
+  requires_redmine version_or_higher: '4.2.2'
 
   webdav = if Redmine::Plugin.installed?('easy_hosting_services') && EasyHostingServices::EasyMultiTenancy.activated?
              '1'

@@ -23,7 +23,7 @@
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
   <p>
     <% options = [[l(:label_none), nil]] %>
-    <% options.concat DmsfQuery.only_public.where(project_id: nil).or(DmsfQuery.where(user_id: @user.id)).
+    <% options.concat DmsfQuery.where(project_id: nil).or(DmsfQuery.where(user_id: @user.id)).
         pluck(:name, :id) %>
     <%= pref_fields.select :default_dmsf_query,
                    options_for_select(options, selected: @user.pref.default_dmsf_query) %>

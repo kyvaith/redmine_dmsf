@@ -27,6 +27,7 @@ source 'https://rubygems.org' do
   gem 'uuidtools'
   gem 'xapian-ruby'
   gem 'zip-zip' unless Dir.exist?(File.expand_path('../../vault', __FILE__))
+  gem 'loofah', '~>2.19.1'
 
   # Redmine extensions
   gem 'simple_enum' unless Dir.exist?(File.expand_path('../../easyproject', __FILE__))

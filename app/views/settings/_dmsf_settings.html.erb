@@ -194,7 +194,7 @@
 <p>
   <%= content_tag :label, l(:label_default_query) %>
   <% options = [[l(:label_none), nil]] %>
-  <% options.concat DmsfQuery.only_public.where(project_id: nil).pluck(:name, :id) %>
+  <% options.concat DmsfQuery.where(project_id: nil).pluck(:name, :id) %>
   <%= select_tag 'settings[dmsf_default_query]',
                  options_for_select(options, selected: @settings['dmsf_default_query']) %>
 </p>
